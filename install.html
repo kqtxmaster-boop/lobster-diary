@@ -179,21 +179,18 @@
 
             switch(system) {
                 case "Windows":
-                    downloadUrl = "https://github.com/kqtxmaster-boop/xiaohuamei-lobster/releases/download/v1.0/xiaohuamei-lobster-setup.exe";
-                    filename = "小话梅版小龙虾-安装包.exe";
+                    downloadUrl = "https://www.xiaohuamei.my/install.ps1";
+                    filename = "小话梅版小龙虾-安装脚本.ps1";
                     break;
                 case "macOS":
-                    downloadUrl = "https://github.com/kqtxmaster-boop/xiaohuamei-lobster/releases/download/v1.0/xiaohuamei-lobster-setup.dmg";
-                    filename = "小话梅版小龙虾-安装包.dmg";
-                    break;
                 case "Linux":
-                    downloadUrl = "https://github.com/kqtxmaster-boop/xiaohuamei-lobster/releases/download/v1.0/xiaohuamei-lobster-setup.sh";
+                    downloadUrl = "https://www.xiaohuamei.my/install.sh";
                     filename = "小话梅版小龙虾-安装脚本.sh";
                     break;
                 default:
                     alert("暂不支持您的系统，您可以手动下载安装脚本");
-                    downloadUrl = "https://github.com/kqtxmaster-boop/xiaohuamei-lobster/releases";
-                    filename = "查看下载页面";
+                    downloadUrl = "https://www.xiaohuamei.my/install.sh";
+                    filename = "install.sh";
             }
 
             if (downloadUrl) {
