@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦞 小话梅版小龙虾 - 一键安装</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            padding: 40px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        h1 span { font-size: 1.5em; }
+        .subtitle {
+            color: #888;
+            font-size: 1.3em;
+            margin-bottom: 40px;
+        }
+        .feature {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .feature h2 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+        .feature ul {
+            list-style: none;
+            text-align: left;
+            display: inline-block;
+        }
+        .feature li {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+        .feature li:before {
+            content: "✅ ";
+        }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.5em;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 20px;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s;
+        }
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+        .system-hint {
+            color: #666;
+            margin-top: 30px;
+        }
+        .steps {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        .steps h3 {
+            color: #6bff6b;
+            margin-bottom: 20px;
+        }
+        .steps ol {
+            margin-left: 30px;
+        }
+        .steps li {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+        .warning {
+            background: rgba(255,107,107,0.2);
+            border: 1px solid #ff6b6b;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🦞 小话梅版小龙虾</h1>
+        <p class="subtitle">一键安装，无需翻墙，全程中文</p>
+
+        <div class="feature">
+            <h2>🌟 为什么选择小话梅版？</h2>
+            <ul>
+                <li>📦 国内镜像源 - 无需翻墙即可安装</li>
+                <li>🇨🇳 全程中文 - 告别英文界面</li>
+                <li>⚡ 配置简单 - 输入 API Key 就能用</li>
+                <li>💬 多渠道支持 - 飞书、企业微信、Telegram</li>
+                <li>🌐 Web 控制台 - 浏览器直接聊天</li>
+            </ul>
+        </div>
+
+        <div class="steps">
+            <h3>📋 安装步骤</h3>
+            <ol>
+                <li>点击下方按钮下载安装包</li>
+                <li>双击运行安装程序</li>
+                <li>按照提示输入 API Key</li>
+                <li>开始使用！</li>
+            </ol>
+        </div>
+
+        <div class="warning">
+            ⚠️ 安装前请先准备好 API Key（推荐 MiniMax）
+        </div>
+
+        <div id="download-area">
+            <button class="download-btn" onclick="detectAndDownload()">
+                📥 一键下载安装
+            </button>
+        </div>
+
+        <p class="system-hint">
+            检测到您的系统: <span id="detected-system">正在检测...</span>
+        </p>
+        
+        <p style="margin-top: 40px; color: #666;">
+            <a href="https://www.xiaohuamei.my" style="color: #6bff6b;">返回首页</a> | 
+            <a href="https://www.xiaohuamei.my/docs" style="color: #6bff6b;">使用文档</a>
+        </p>
+    </div>
+
+    <script>
+        // 检测操作系统
+        function detectSystem() {
+            const ua = navigator.userAgent;
+            let system = "未知系统";
+            
+            if (ua.indexOf("Win") !== -1) {
+                system = "Windows";
+            } else if (ua.indexOf("Mac") !== -1) {
+                system = "macOS";
+            } else if (ua.indexOf("Linux") !== -1) {
+                system = "Linux";
+            } else if (ua.indexOf("Android") !== -1) {
+                system = "Android";
+            } else if (ua.indexOf("iPhone") !== -1 || ua.indexOf("iPad") !== -1) {
+                system = "iOS";
+            }
+            
+            return system;
+        }
+
+        // 显示检测结果
+        const system = detectSystem();
+        document.getElementById('detected-system').textContent = system;
+
+        // 下载功能
+        function detectAndDownload() {
+            const system = detectSystem();
+            let downloadUrl = "";
+            let filename = "";
+
+            switch(system) {
+                case "Windows":
+                    downloadUrl = "https://github.com/kqtxmaster-boop/xiaohuamei-lobster/releases/download/v1.0/xiaohuamei-lobster-setup.exe";
+                    filename = "小话梅版小龙虾-安装包.exe";
+                    break;
+                case "macOS":
+                    downloadUrl = "https://github.com/kqtxmaster-boop/xiaohuamei-lobster/releases/download/v1.0/xiaohuamei-lobster-setup.dmg";
+                    filename = "小话梅版小龙虾-安装包.dmg";
+                    break;
+                case "Linux":
+                    downloadUrl = "https://github.com/kqtxmaster-boop/xiaohuamei-lobster/releases/download/v1.0/xiaohuamei-lobster-setup.sh";
+                    filename = "小话梅版小龙虾-安装脚本.sh";
+                    break;
+                default:
+                    alert("暂不支持您的系统，您可以手动下载安装脚本");
+                    downloadUrl = "https://github.com/kqtxmaster-boop/xiaohuamei-lobster/releases";
+                    filename = "查看下载页面";
+            }
+
+            if (downloadUrl) {
+                // 创建下载链接
+                const a = document.createElement('a');
+                a.href = downloadUrl;
+                a.download = filename;
+                a.target = '_blank';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                
+                alert("开始下载: " + filename + "\n\n下载完成后双击运行即可！");
+            }
+        }
+    </script>
+</body>
+</html>
