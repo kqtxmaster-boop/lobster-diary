@@ -1,0 +1,7 @@
+    <script>
+        // 从3月5日开始，第1天
+        const startDate = new Date('2026-03-05');
+        const today = new Date();
+        const diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
+        document.getElementById('days').textContent = diffDays >= 1 ? diffDays : 1;
+    </script>
