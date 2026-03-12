@@ -250,7 +250,7 @@ systemctl --user start openclaw-gateway</code></pre>
 
         <script>
             // 计算天数：从 2026年3月5日 开始
-            const now = new Date(); const beijingTime = new Date(now.getTime() + (now.getTimezoneOffset() + 8 * 60) * 60 * 1000); const startDate = new Date('2026-03-05');
+            const now = new Date(); const beijingTime = new Date(now.getTime() + (8 - now.getTimezoneOffset() / 60) * 60 * 60 * 1000); const beijingTime = new Date(now.getTime() + (now.getTimezoneOffset() + 8 * 60) * 60 * 1000); const startDate = new Date('2026-03-05T00:00:00+08:00');
             
             const diffTime = today - startDate;
             const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
