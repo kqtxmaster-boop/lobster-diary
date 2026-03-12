@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>使用文档 - 小话梅版小龙虾</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .nav {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav a {
+            color: #6bff6b;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+        .nav a:hover {
+            color: #fff;
+        }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+            color: white !important;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h2 {
+            color: #ff6b6b;
+            margin: 40px 0 20px;
+            font-size: 1.8em;
+        }
+        h3 {
+            color: #6bff6b;
+            margin: 30px 0 15px;
+            font-size: 1.4em;
+        }
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        code {
+            background: rgba(0,0,0,0.3);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        pre {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        pre code {
+            padding: 0;
+            background: none;
+        }
+        ul, ol {
+            margin-left: 30px;
+            line-height: 2;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .warning {
+            background: rgba(255,107,107,0.1);
+            border-left: 4px solid #ff6b6b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .tip {
+            background: rgba(107,255,107,0.1);
+            border-left: 4px solid #6bff6b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="/">首页</a>
+            <a href="/install">一键安装</a>
+            <a href="/docs">使用文档</a>
+            <a href="https://www.xiaohuamei.my/install.sh" class="download-btn">📥 一键安装</a>
+        </nav>
+
+        <h1>📖 使用文档</h1>
+
+        <div class="card">
+            <h2>🚀 快速开始</h2>
+            
+            <h3>1. 一键安装</h3>
+            <p>复制以下命令到终端运行：</p>
+            <pre><code>curl -fsSL https://www.xiaohuamei.my/install.sh | bash</code></pre>
+            
+            <h3>2. 输入 API Key</h3>
+            <p>安装过程中会提示您输入 API Key，您可以选择：</p>
+            <ul>
+                <li><strong>MiniMax</strong> (推荐) - 国内首选，稳定便宜</li>
+                <li><strong>Kimi</strong> - 月之暗面出品</li>
+                <li><strong>SiliconFlow</strong> - 聚合多家模型</li>
+            </ul>
+
+            <h3>3. 启动服务</h3>
+            <p>安装完成后会自动启动，或者运行：</p>
+            <pre><code>openclaw gateway --port 18789</code></pre>
+        </div>
+
+        <div class="card">
+            <h2>🌐 如何使用</h2>
+
+            <h3>方式一：网页版</h3>
+            <p>打开浏览器访问：<code>http://localhost:18789/</code></p>
+
+            <h3>方式二：飞书</h3>
+            <ol>
+                <li>打开 <a href="https://open.feishu.cn/" style="color:#6bff6b;">飞书开放平台</a></li>
+                <li>创建企业自建应用</li>
+                <li>获取 App ID 和 App Secret</li>
+                <li>添加权限：im:message:send_as_bot, im:chat:create</li>
+                <li>运行 <code>openclaw channels login feishu</code> 配置</li>
+            </ol>
+
+            <h3>方式三：企业微信</h3>
+            <ol>
+                <li>登录企业微信管理后台</li>
+                <li>创建自建应用</li>
+                <li>获取 AgentId 和 Secret</li>
+                <li>运行 <code>openclaw channels login wecom</code> 配置</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h2>💰 获取 API Key</h2>
+
+            <div class="tip">
+                <strong>💡 省钱提示：</strong>除了按量付费的 API Key，还可以找各种 <strong>Coding Plan</strong>（编程计划），通常包含免费或优惠的 API 调用额度，更划算！
+            </div>
+
+            <h3>方案一：MiniMax (推荐)</h3>
+            <ol>
+                <li>访问 <a href="https://platform.minimaxi.com/" style="color:#6bff6b;">MiniMax 开放平台</a></li>
+                <li>注册账号并实名认证</li>
+                <li>在"API Keys"页面创建密钥</li>
+                <li>复制密钥备用</li>
+            </ol>
+
+            <h3>方案二：SiliconFlow</h3>
+            <ol>
+                <li>访问 <a href="https://siliconflow.cn" style="color:#6bff6b;">SiliconFlow</a></li>
+                <li>注册账号</li>
+                <li>在控制台获取 API Key</li>
+            </ol>
+
+            <h3>方案三：Coding Plan (更划算)</h3>
+            <p>各大 AI 公司都推出 Coding/Pro 计划，通常包含：</p>
+            <ul>
+                <li><strong>Claude Code</strong> - $20/月，额度用不完</li>
+                <li><strong>Cursor</strong> - 免费版够用，付费版 $20/月</li>
+                <li><strong>Windsurf</strong> - 类似 Cursor</li>
+                <li><strong>GitHub Copilot</strong> - $10/月</li>
+            </ul>
+            <p>这些计划虽然主要是编程助手，但 API 额度可以用于 OpenClaw！而且比单独买 API Key 便宜。</p>
+
+            <div class="warning">
+                <strong>⚠️ 注意：</strong>Coding Plan 的 API 使用有限制，建议先测试能否正常使用 OpenClaw
+            </div>
+
+            <div class="tip">
+                <strong>💡 提示：</strong>新用户通常有免费额度，可以先用免费额度测试
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>⚙️ 常用命令</h2>
+
+            <pre><code># 启动服务
+openclaw gateway
+
+# 查看状态
+openclaw status
+
+# 配置聊天渠道
+openclaw onboard
+
+# 查看帮助
+openclaw --help</code></pre>
+        </div>
+
+        <div class="card">
+            <h2>🔧 常见问题</h2>
+
+            <h3>Q: 安装失败怎么办？</h3>
+            <p>确保已安装 Node.js 22+，如果没有会自动安装。请检查网络连接。</p>
+
+            <h3>Q: 一直显示"正在启动"？</h3>
+            <p>按 Ctrl+C 停止，然后重新运行 <code>openclaw gateway</code></p>
+
+            <h3>Q: 如何更换 API Key？</h3>
+            <p>编辑 <code>~/.openclaw/openclaw.json</code> 文件，修改对应的 API Key</p>
+
+            <h3>Q: 如何后台运行？</h3>
+            <pre><code># Linux/Mac
+nohup openclaw gateway &
+
+# 使用 systemctl
+systemctl --user start openclaw-gateway</code></pre>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ 注意：</strong>OpenClaw 需要运行在有网络的环境下。如果无法访问国外 API，请使用国内模型（MiniMax、Kimi 等）
+        </div>
+
+        <div style="text-align:center; margin-top:40px; color:#666;">
+            <p>🦞 Powered by 小话梅的 OpenClaw</p>
+            <p>养 AI 的第 <span id="days"></span> 天</p>
+            <p><a href="https://www.xiaohuamei.my" style="color:#6bff6b;">返回首页</a></p>
+        </div>
+
+        <script>
+            // 计算天数：从 2026年3月5日 开始
+            const startDate = new Date('2026-03-05');
+            const today = new Date();
+            const diffTime = today - startDate;
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+            document.getElementById('days').textContent = diffDays;
+        </script>
+    </div>
+</body>
+</html>
