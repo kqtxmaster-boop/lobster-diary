@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>每日统计 - 小话梅版小龙虾</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #6366f1; --bg: #1a1a2e; --card-bg: #16213e; --text: #fff; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: linear-gradient(135deg, var(--bg) 0%, var(--card-bg) 100%); min-height: 100vh; color: var(--text); padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        h1 { color: #ff6b6b; text-align: center; margin-bottom: 30px; }
+        h2 { color: #6bff6b; margin: 30px 0 15px; }
+        .card { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 24px; margin: 20px 0; }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .stat-item { text-align: center; padding: 20px; }
+        .stat-number { font-size: 36px; font-weight: bold; color: #6bff6b; }
+        .stat-label { color: #999; margin-top: 8px; }
+        .nav { text-align: center; margin-bottom: 30px; }
+        .nav a { color: #6bff6b; margin: 0 15px; text-decoration: none; }
+        .nav a:hover { color: #ff6b6b; }
+        .date { color: #666; font-size: 14px; text-align: center; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="/">首页</a>
+            <a href="/install">一键安装</a>
+            <a href="/docs">使用文档</a>
+            <a href="/skills">技能清单</a>
+            <a href="/stats">每日统计</a>
+        </nav>
+        
+        <h1>📊 每日统计</h1>
+        
+        <div class="card">
+            <h2>📅 2026年3月12日</h2>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-number">176</div>
+                    <div class="stat-label">发送消息</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">869</div>
+                    <div class="stat-label">回复消息</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1045</div>
+                    <div class="stat-label">总消息</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">~2小时</div>
+                    <div class="stat-label">沟通时长</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>📈 历史统计</h2>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-number">180</div>
+                    <div class="stat-label">总发送</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">894</div>
+                    <div class="stat-label">总回复</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1074</div>
+                    <div class="stat-label">总消息</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="date">
+            🦞 Powered by 小话梅的 OpenClaw | 养小龙虾的第 <span id="days"></span> 天
+        </div>
+    </div>
+    <script>
+        const startDate = new Date('2026-03-05');
+        const today = new Date();
+        const diffTime = today - startDate;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+        document.getElementById('days').textContent = diffDays;
+    </script>
+</body>
+</html>
