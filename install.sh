@@ -1,14 +1,27 @@
 #!/bin/bash
 
 # ========================================
-# 🦞 小话梅版小龙虾 - 一键安装（国内源版）
+# 🦞 小话梅版小龙虾 - 一键安装
 # ========================================
+
+# 版本: 1.0.1 (2026-03-12)
+# 更新: 添加 AnyRouter 代理支持
 
 set -e
 
 echo "🦞 欢迎使用小话梅版小龙虾！"
 echo "================================"
 echo "🌏 全程国内，无需翻墙"
+echo ""
+
+# 显示版本信息
+echo "📋 当前版本: 1.0.1"
+echo ""
+
+# 读取版本历史
+echo "📜 版本历史："
+echo "  v1.0.1 (2026-03-12) - 添加 AnyRouter 代理支持"
+echo "  v1.0.0 (2026-03-11) - 初始版本"
 echo ""
 
 # 设置国内镜像源
@@ -45,10 +58,14 @@ echo ""
 echo "  [1] MiniMax (推荐 ⭐ - 国内首选，便宜稳定)"
 echo "  [2] Kimi (月之暗面)"
 echo "  [3] 硅基流动 (SiliconFlow - 聚合多家模型)"
-echo "  [4] 跳过，稍后手动配置"
+echo "  [4] 使用预置 AnyRouter 代理（孔总的中转服务）"
+echo "  [5] 跳过，稍后手动配置"
 echo ""
 
-read -p "请输入选项 (1-4): " choice
+read -p "请输入选项 (1-5): " choice
+
+# AnyRouter 代理地址（预置，不公开）
+ANYROUTER_URL="https://anyrouter.kqtxmaster.workers.dev/v1"
 
 case $choice in
     1)
@@ -117,6 +134,37 @@ EOF
 }
 EOF
             echo "✅ SiliconFlow 配置完成！"
+        fi
+        ;;
+    4)
+        echo ""
+        echo "📡 使用孔总预置的 AnyRouter 代理服务"
+        echo "   代理地址: $ANYROUTER_URL"
+        echo ""
+        read -p "请输入您的 API Key: " API_KEY
+        if [ -n "$API_KEY" ]; then
+            mkdir -p ~/.openclaw
+            cat > ~/.openclaw/openclaw.json << EOF
+{
+  "env": {
+    "OPENAI_API_KEY": "$API_KEY"
+  },
+  "providers": {
+    "openai": {
+      "apiBase": "$ANYROUTER_URL"
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai/gpt-4o"
+      }
+    }
+  }
+}
+EOF
+            echo "✅ AnyRouter 代理配置完成！"
+            echo "   代理地址: $ANYROUTER_URL"
         fi
         ;;
     *)
