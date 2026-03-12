@@ -170,77 +170,20 @@
         </div>
     </div>
 
-    <script>
-        // 计算天数：从 2026年3月5日 开始
-        const now = new Date(); const beijingTime = new Date(now.getTime() + (8 - now.getTimezoneOffset() / 60) * 60 * 60 * 1000); const beijingTime = new Date(now.getTime() + (now.getTimezoneOffset() + 8 * 60) * 60 * 1000); const startDate = new Date('2026-03-05T00:00:00+08:00');
-        
-        const diffTime = today - startDate;
-        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+        <script>
+        const startDate = new Date('2026-03-05');
+        const today = new Date();
+        const diffDays = Math.floor((today - startDate) / 86400000) + 1;
         document.getElementById('days').textContent = diffDays;
     </script>
 </body>
 </html>
 
-    <script>
-        // 检测操作系统
-        function detectSystem() {
-            const ua = navigator.userAgent;
-            let system = "未知系统";
-            
-            if (ua.indexOf("Win") !== -1) {
-                system = "Windows";
-            } else if (ua.indexOf("Mac") !== -1) {
-                system = "macOS";
-            } else if (ua.indexOf("Linux") !== -1) {
-                system = "Linux";
-            } else if (ua.indexOf("Android") !== -1) {
-                system = "Android";
-            } else if (ua.indexOf("iPhone") !== -1 || ua.indexOf("iPad") !== -1) {
-                system = "iOS";
-            }
-            
-            return system;
-        }
-
-        // 显示检测结果
-        const system = detectSystem();
-        document.getElementById('detected-system').textContent = system;
-
-        // 下载功能
-        function detectAndDownload() {
-            const system = detectSystem();
-            let downloadUrl = "";
-            let filename = "";
-
-            switch(system) {
-                case "Windows":
-                    downloadUrl = "https://www.xiaohuamei.my/install.ps1";
-                    filename = "小话梅版小龙虾-安装脚本.ps1";
-                    break;
-                case "macOS":
-                case "Linux":
-                    downloadUrl = "https://www.xiaohuamei.my/install.sh";
-                    filename = "小话梅版小龙虾-安装脚本.sh";
-                    break;
-                default:
-                    alert("暂不支持您的系统，您可以手动下载安装脚本");
-                    downloadUrl = "https://www.xiaohuamei.my/install.sh";
-                    filename = "install.sh";
-            }
-
-            if (downloadUrl) {
-                // 创建下载链接
-                const a = document.createElement('a');
-                a.href = downloadUrl;
-                a.download = filename;
-                a.target = '_blank';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                
-                alert("开始下载: " + filename + "\n\n下载完成后双击运行即可！");
-            }
-        }
+        <script>
+        const startDate = new Date('2026-03-05');
+        const today = new Date();
+        const diffDays = Math.floor((today - startDate) / 86400000) + 1;
+        document.getElementById('days').textContent = diffDays;
     </script>
 </body>
 </html>

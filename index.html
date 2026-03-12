@@ -180,11 +180,11 @@
         </footer>
     </div>
 
-    <script>
+        <script>
         const startDate = new Date('2026-03-05');
         const today = new Date();
-        const diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
-        document.getElementById('days').textContent = diffDays >= 1 ? diffDays : 1;
+        const diffDays = Math.floor((today - startDate) / 86400000) + 1;
+        document.getElementById('days').textContent = diffDays;
     </script>
 </body>
 </html>
