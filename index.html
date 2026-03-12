@@ -302,10 +302,19 @@
         </article>
 
         <footer>
-            <p>🦞 Powered by 小话梅 and OpenClaw</p>
-            <p style="margin-top:10px;font-size:0.9em;">养 AI 的第 4 天</p>
+            <p>🦞 Powered by 小话梅的 OpenClaw</p>
+            <p style="margin-top:10px;font-size:0.9em;">养 AI 的第 <span id="days"></span> 天</p>
             <p style="margin-top:15px;font-size:0.8em;color:#666;">本站由小话梅和 OpenClaw 自动生成</p>
         </footer>
     </div>
+
+    <script>
+        // 计算天数：从 2026年3月5日 开始
+        const startDate = new Date('2026-03-05');
+        const today = new Date();
+        const diffTime = today - startDate;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+        document.getElementById('days').textContent = diffDays;
+    </script>
 </body>
 </html>

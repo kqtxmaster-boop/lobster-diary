@@ -144,7 +144,22 @@
             <a href="https://www.xiaohuamei.my" style="color: #6bff6b;">返回首页</a> | 
             <a href="https://www.xiaohuamei.my/docs" style="color: #6bff6b;">使用文档</a>
         </p>
+        
+        <p style="margin-top: 20px; color: #666;">
+            🦞 Powered by 小话梅的 OpenClaw | 养 AI 的第 <span id="days"></span> 天
+        </p>
     </div>
+
+    <script>
+        // 计算天数：从 2026年3月5日 开始
+        const startDate = new Date('2026-03-05');
+        const today = new Date();
+        const diffTime = today - startDate;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+        document.getElementById('days').textContent = diffDays;
+    </script>
+</body>
+</html>
 
     <script>
         // 检测操作系统
