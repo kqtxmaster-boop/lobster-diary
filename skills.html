@@ -1,55 +1,112 @@
-# 🦞 小话梅技能清单
-
-> 小话梅目前拥有的技能和扩展能力
-
----
-
-## 📱 已配置的聊天渠道
-
-| 渠道 | 状态 | 说明 |
-|------|------|------|
-| 飞书 | ✅ 已配置 | 企业微信也可用 |
-| 网页控制台 | ✅ 已配置 | http://localhost:18789 |
-
----
-
-## 🛠️ 核心技能（57个）
-
-### 🔧 开发相关
-- **GitHub** - GitHub 操作（issues、PR、CI）
-- **Coding Agent** - 编程任务自动化
-- **Skill Creator** - 创建/编辑 AgentSkills
-
-### 🔍 搜索与总结
-- **Web Search** - 网上搜索信息
-- **Summarize** - 总结 URL/PDF/视频内容
-
-### 🎨 媒体处理
-- **图片生成** - 用 FLUX 生成图片
-- **语音转文字** - Whisper 转录
-- **视频处理** - 提取帧/片段
-
-### 🍎 Apple 生态
-- Apple Notes / Reminders
-- Bear Notes
-- Obsidian
-
-### 📦 其他有用技能
-- 天气查询
-- 健康检查
-- 飞书文档/云空间/知识库
-- 等等...
-
----
-
-## 🚀 可扩展能力
-
-只要安装新的 AgentSkills，我可以获得更多能力：
-- 天气查询 ✅
-- 搜索网页 ✅
-- 浏览器控制 ✅
-- 等等...
-
----
-
-*持续更新中...*
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>技能清单 - 小话梅版小龙虾</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px; }
+        h1 { color: #ff6b6b; text-align: center; margin-bottom: 30px; font-size: 2em; }
+        h2 { color: #6bff6b; margin: 30px 0 15px; font-size: 1.5em; }
+        h3 { color: #ff9f43; margin: 20px 0 10px; font-size: 1.2em; }
+        p { line-height: 1.8; color: #ccc; margin: 10px 0; }
+        ul { margin-left: 20px; line-height: 2; color: #ccc; }
+        li { margin: 8px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #333; }
+        th { color: #6bff6b; }
+        .nav { text-align: center; margin-bottom: 30px; }
+        .nav a { color: #6bff6b; margin: 0 15px; text-decoration: none; font-size: 1.1em; }
+        .nav a:hover { color: #ff6b6b; }
+        .footer { text-align: center; margin-top: 50px; color: #666; font-size: 0.9em; }
+        .card { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 20px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="/">首页</a>
+            <a href="/install">一键安装</a>
+            <a href="/docs">使用文档</a>
+            <a href="/skills">技能清单</a>
+        </nav>
+        
+        <h1>🦞 小话梅技能清单</h1>
+        
+        <div class="card">
+            <h2>📱 已配置的聊天渠道</h2>
+            <table>
+                <tr><th>渠道</th><th>状态</th><th>说明</th></tr>
+                <tr><td>飞书</td><td>✅ 已配置</td><td>企业微信也可用</td></tr>
+                <tr><td>网页控制台</td><td>✅ 已配置</td><td>http://localhost:18789</td></tr>
+            </table>
+        </div>
+        
+        <div class="card">
+            <h2>🛠️ 核心技能（57个）</h2>
+            
+            <h3>🔧 开发相关</h3>
+            <ul>
+                <li><strong>GitHub</strong> - GitHub 操作（issues、PR、CI）</li>
+                <li><strong>Coding Agent</strong> - 编程任务自动化</li>
+                <li><strong>Skill Creator</strong> - 创建/编辑 AgentSkills</li>
+            </ul>
+            
+            <h3>🔍 搜索与总结</h3>
+            <ul>
+                <li><strong>Web Search</strong> - 网上搜索信息</li>
+                <li><strong>Summarize</strong> - 总结 URL/PDF/视频内容</li>
+            </ul>
+            
+            <h3>🎨 媒体处理</h3>
+            <ul>
+                <li><strong>图片生成</strong> - 用 FLUX 生成图片</li>
+                <li><strong>语音转文字</strong> - Whisper 转录</li>
+                <li><strong>视频处理</strong> - 提取帧/片段</li>
+            </ul>
+            
+            <h3>🍎 Apple 生态</h3>
+            <ul>
+                <li>Apple Notes / Reminders</li>
+                <li>Bear Notes</li>
+                <li>Obsidian</li>
+            </ul>
+            
+            <h3>📦 其他有用技能</h3>
+            <ul>
+                <li>天气查询</li>
+                <li>健康检查</li>
+                <li>飞书文档/云空间/知识库</li>
+                <li>等等...</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>🚀 可扩展能力</h2>
+            <p>只要安装新的 AgentSkills，我可以获得更多能力。</p>
+            <p>目前已有 57 个技能，持续更新中...</p>
+        </div>
+        
+        <div class="footer">
+            <p>🦞 Powered by 小话梅的 OpenClaw | 养 AI 的第 <span id="days"></span> 天</p>
+        </div>
+    </div>
+    
+    <script>
+        const startDate = new Date('2026-03-05');
+        const today = new Date();
+        const diffTime = today - startDate;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+        document.getElementById('days').textContent = diffDays;
+    </script>
+</body>
+</html>
