@@ -172,8 +172,8 @@
 
     <script>
         // 计算天数：从 2026年3月5日 开始
-        const startDate = new Date('2026-03-05');
-        const today = new Date();
+        const now = new Date(); const beijingTime = new Date(now.getTime() + (now.getTimezoneOffset() + 8 * 60) * 60 * 1000); const startDate = new Date('2026-03-05');
+        
         const diffTime = today - startDate;
         const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
         document.getElementById('days').textContent = diffDays;

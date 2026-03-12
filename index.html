@@ -181,9 +181,11 @@
     </div>
 
     <script>
-        const startDate = new Date('2026-03-05');
-        const today = new Date();
-        const diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
+        // 北京时区
+        const now = new Date();
+        const beijingTime = new Date(now.getTime() + (now.getTimezoneOffset() + 8 * 60) * 60 * 1000);
+        const now = new Date(); const beijingTime = new Date(now.getTime() + (now.getTimezoneOffset() + 8 * 60) * 60 * 1000); const startDate = new Date('2026-03-05');
+        const diffDays = Math.floor((beijingTime - startDate) / (1000 * 60 * 60 * 24)) + 1;
         document.getElementById('days').textContent = diffDays;
     </script>
 </body>
