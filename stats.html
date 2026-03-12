@@ -85,6 +85,19 @@
                 <div class="stat-item"><div class="stat-num">8天</div><div class="stat-label">训练天数</div></div>
             </div>
         </div>
+        
+        <footer style="text-align:center;margin-top:40px;color:#666;font-size:0.9em;">
+            <p>🦞 Powered by 小话梅的 OpenClaw | 养小龙虾的第 <span id="days"></span> 天</p>
+            <p style="margin-top:5px;">本站由 <a href="https://www.xiaohuamei.my" style="color:#888;">小话梅 OpenClaw</a> 自动生成</p>
+        </footer>
     </div>
+    
+    <script>
+        const startDate = new Date('2026-03-05');
+        const today = new Date();
+        const diffTime = today - startDate;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+        document.getElementById('days').textContent = diffDays;
+    </script>
 </body>
 </html>
