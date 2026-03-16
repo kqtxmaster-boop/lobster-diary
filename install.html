@@ -11,35 +11,84 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             min-height: 100vh;
-            color: #fff;
+            color: #e0e0e0;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px 40px; }
+        
+        /* 统一导航栏 */
+        .navbar {
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
-        .container {
-            max-width: 1000px;
-            padding: 40px;
-            text-align: center;
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.2em;
         }
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
+        .nav-logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
         }
-        h1 span { font-size: 1.5em; }
-        .subtitle {
-            color: #888;
-            font-size: 1.3em;
-            margin-bottom: 40px;
+        .nav-logo span {
+            background: linear-gradient(135deg, #ff6b6b, #ffa502);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .feature {
-            background: rgba(255,255,255,0.1);
+        .nav-links {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #aaa;
+            text-decoration: none;
+            padding: 8px 16px;
             border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
+            transition: all 0.3s;
+            font-size: 0.95em;
         }
-        .feature h2 {
-            color: #ff6b6b;
-            margin-bottom: 20px;
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255,107,107,0.2);
+            color: #fff;
+        }
+        .nav-links a.download-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 8px 20px;
+            font-weight: bold;
+        }
+        .nav-links a.download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255,107,107,0.4);
+        }
+        
+        /* 页面内容 */
+        header { text-align: center; padding: 60px 0 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        h2 { color: #ff6b6b; margin: 30px 0 20px; font-size: 1.5em; }
+        .subtitle { color: #888; font-size: 1.1em; margin-bottom: 40px; }
+        
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         .feature ul {
             list-style: none;
@@ -50,142 +99,195 @@
             padding: 10px 0;
             font-size: 1.1em;
         }
-        .feature li:before {
-            content: "✅ ";
-        }
-        .download-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
-            color: white;
-            padding: 20px 50px;
-            font-size: 1.5em;
-            border-radius: 50px;
-            text-decoration: none;
-            margin: 20px;
-            cursor: pointer;
-            border: none;
-            transition: transform 0.2s;
-        }
-        .download-btn:hover {
-            transform: scale(1.05);
-        }
-        .system-hint {
-            color: #666;
-            margin-top: 30px;
-        }
+        .feature li:before { content: "✅ "; }
+        
         .steps {
             background: rgba(255,255,255,0.05);
             border-radius: 15px;
             padding: 30px;
-            margin: 30px 0;
+            margin: 20px 0;
             text-align: left;
         }
-        .steps h3 {
-            color: #6bff6b;
-            margin-bottom: 20px;
+        .steps h3 { color: #6bff6b; margin-bottom: 20px; }
+        .steps ol { margin-left: 30px; }
+        .steps li { padding: 10px 0; font-size: 1.1em; }
+        
+        .download-btn-large {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.3em;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 20px 0;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .steps ol {
-            margin-left: 30px;
+        .download-btn-large:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255,107,107,0.4);
         }
-        .steps li {
-            padding: 10px 0;
-            font-size: 1.1em;
-        }
+        
         .warning {
-            background: rgba(255,107,107,0.2);
-            border: 1px solid #ff6b6b;
+            background: rgba(255,107,107,0.15);
+            border: 1px solid rgba(255,107,107,0.3);
             border-radius: 10px;
-            padding: 15px;
+            padding: 20px;
             margin: 20px 0;
             color: #ff6b6b;
+        }
+        
+        .version-list {
+            list-style: none;
+            padding: 0;
+        }
+        .version-list li {
+            background: rgba(255,255,255,0.05);
+            margin: 10px 0;
+            padding: 15px 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .version-list .version-tag {
+            background: linear-gradient(135deg, #ff6b6b, #ffa502);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .version-list a {
+            color: #6bff6b;
+            text-decoration: none;
+        }
+        
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9em; }
+        footer a { color: #6bff6b; text-decoration: none; }
+        
+        @media (max-width: 600px) {
+            .nav-container { flex-direction: column; gap: 15px; }
+            .nav-links { justify-content: center; }
+            .navbar { padding: 15px; }
         }
     </style>
 </head>
 <body>
+    <!-- 统一导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="/favicon.png" alt="logo">
+                <span>🦞 小话梅</span>
+            </div>
+            <div class="nav-links">
+                <a href="/">首页</a>
+                <a href="/install" class="active">一键安装</a>
+                <a href="/docs">使用文档</a>
+                <a href="/skills">技能清单</a>
+                <a href="/stats">每日统计</a>
+                <a href="https://www.xiaohuamei.my/install.sh" class="download-btn" target="_blank">📥 下载</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
-        <h1>🦞 小话梅版小龙虾</h1>
-        <p class="subtitle">一键安装，无需翻墙，全程中文</p>
+        <header>
+            <h1>📥 一键安装</h1>
+            <p class="subtitle">小话梅版 OpenClaw - 无需翻墙，全程中文</p>
+        </header>
 
-        <div class="feature">
-            <h2>📜 版本历史</h2>
-            <ul style="text-align:left;">
-                <li><strong>v1.0.2 (2026-03-13) - OpenClaw 2026.3.11
-                <li><strong>v1.0.2</strong> (2026-03-13) - OpenClaw 2026.3.11 <a href="https://www.xiaohuamei.my/install.sh" style="color:#6bff6b;">[下载]</a></li>
-                <li><strong>v1.0.1</strong> (2026-03-12)</strong> (2026-03-12) - 添加 AnyRouter 代理支持 <a href="https://www.xiaohuamei.my/install.sh" style="color:#6bff6b;">[下载]</a></li>
-                <li><strong>v1.0.0</strong> (2026-03-11) - 初始版本 <a href="https://www.xiaohuamei.my/install-v1.0.0.sh" style="color:#6bff6b;">[下载]</a></li>
-            </ul>
-        </div>
-
-        <div class="feature">
+        <div class="card">
             <h2>🌟 为什么选择小话梅版？</h2>
-            <ul>
-                <li>📦 国内镜像源 - 无需翻墙即可安装</li>
-                <li>🇨🇳 全程中文 - 告别英文界面</li>
-                <li>⚡ 配置简单 - 输入 API Key 就能用</li>
-                <li>💬 多渠道支持 - 飞书、企业微信、Telegram</li>
-                <li>🌐 Web 控制台 - 浏览器直接聊天</li>
+            <div class="feature">
+                <ul>
+                    <li>📦 国内镜像源 - 无需翻墙即可安装</li>
+                    <li>🇨🇳 全程中文 - 告别英文界面</li>
+                    <li>⚡ 配置简单 - 输入 API Key 就能用</li>
+                    <li>💬 多渠道支持 - 飞书、企业微信、Telegram</li>
+                    <li>🌐 Web 控制台 - 浏览器直接聊天</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📋 安装步骤</h2>
+            <div class="steps">
+                <ol>
+                    <li>点击下方按钮下载安装脚本</li>
+                    <li>双击运行 install.sh（Mac/Linux）或 install.ps1（Windows）</li>
+                    <li>按照提示输入 API Key</li>
+                    <li>开始使用！</li>
+                </ol>
+            </div>
+            
+            <div class="warning">
+                ⚠️ 安装前请先准备好 API Key（推荐 MiniMax）
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="https://www.xiaohuamei.my/install.sh" class="download-btn-large" target="_blank">
+                    📥 一键下载安装脚本
+                </a>
+            </div>
+            
+            <p style="text-align: center; margin-top: 20px; color: #888;">
+                检测到您的系统: <span id="detected-system">正在检测...</span>
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>📜 版本历史</h2>
+            <ul class="version-list">
+                <li>
+                    <span><span class="version-tag">v1.0.2</span> 2026-03-13</span>
+                    <span>OpenClaw 2026.3.11 | <a href="https://www.xiaohuamei.my/install.sh">下载</a></span>
+                </li>
+                <li>
+                    <span><span class="version-tag">v1.0.1</span> 2026-03-12</span>
+                    <span>添加 AnyRouter 代理支持 | <a href="https://www.xiaohuamei.my/install.sh">下载</a></span>
+                </li>
+                <li>
+                    <span><span class="version-tag">v1.0.0</span> 2026-03-11</span>
+                    <span>初始版本 | <a href="https://www.xiaohuamei.my/install-v1.0.0.sh">下载</a></span>
+                </li>
             </ul>
         </div>
 
-        <div class="steps">
-            <h3>📋 安装步骤</h3>
-            <ol>
-                <li>点击下方按钮下载安装包</li>
-                <li>双击运行安装程序</li>
-                <li>按照提示输入 API Key</li>
-                <li>开始使用！</li>
-            </ol>
+        <div class="card" style="background: rgba(255,255,255,0.03);">
+            <p style="color: #ff6b6b; font-weight: bold; margin-bottom: 10px;">⚠️ 免责声明</p>
+            <p style="color: #888; font-size: 0.9em;">本项目仅用于测试和研究目的，不保证稳定性。使用前请自行备份重要数据。使用本项目即表示您同意承担一切风险。</p>
         </div>
 
-        <div class="warning">
-            ⚠️ 安装前请先准备好 API Key（推荐 MiniMax）
-        </div>
-
-        <div id="download-area">
-            <button class="download-btn" onclick="detectAndDownload()">
-                📥 一键下载安装
-            </button>
-        </div>
-
-        <p class="system-hint">
-            检测到您的系统: <span id="detected-system">正在检测...</span>
-        </p>
-        
-        <p style="margin-top: 40px; color: #666;">
-            <a href="https://www.xiaohuamei.my" style="color: #6bff6b;">返回首页</a> | 
-            <a href="https://www.xiaohuamei.my/docs" style="color: #6bff6b;">使用文档</a> |
-            <a href="https://www.xiaohuamei.my/skills" style="color: #6bff6b;">技能清单</a>
-        </p>
-        
-        <p style="margin-top: 20px; color: #666;">
-            🦞 Powered by 小话梅的 OpenClaw | 养小龙虾的第 <span id="days">9</span> 天
-        </p>
-
-        <p style="margin-top: 10px; color: #888; font-size: 0.9em;">
-            本站由 <a href="https://www.xiaohuamei.my" style="color:#888;">小话梅 OpenClaw</a> 自动生成
-        </p>
-        
-        <div style="margin-top: 40px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px; font-size: 0.9em; color: #888;">
-            <p style="color: #ff6b6b; font-weight: bold;">⚠️ 免责声明</p>
-            <p style="margin-top: 10px;">本项目仅用于测试和研究目的，不保证稳定性。使用前请自行备份重要数据。
-            <br>使用本项目即表示您同意承担一切风险。</p>
-        </div>
+        <footer>
+            <p>🦞 Powered by 小话梅的 OpenClaw | 养小龙虾的第 <span id="days">11</span> 天</p>
+            <p style="margin-top:10px;">
+                <a href="https://www.xiaohuamei.my">首页</a> | 
+                <a href="https://www.xiaohuamei.my/install">一键安装</a> |
+                <a href="https://www.xiaohuamei.my/docs">使用文档</a> |
+                <a href="https://www.xiaohuamei.my/skills">技能清单</a> |
+                <a href="https://www.xiaohuamei.my/stats">每日统计</a>
+            </p>
+        </footer>
     </div>
 
-        <script>
+    <script>
         const startDate = new Date('2026-03-05');
         const today = new Date();
         const diffDays = Math.floor((today - startDate) / 86400000) + 1;
         document.getElementById('days').textContent = diffDays;
-    </script>
-</body>
-</html>
-
-        <script>
-        const startDate = new Date('2026-03-05');
-        const today = new Date();
-        const diffDays = Math.floor((today - startDate) / 86400000) + 1;
-        document.getElementById('days').textContent = diffDays;
+        
+        // 检测系统
+        const isWindows = navigator.platform.toLowerCase().includes('win');
+        const isMac = navigator.platform.toLowerCase().includes('mac');
+        const isLinux = navigator.platform.toLowerCase().includes('linux');
+        let systemName = '未知系统';
+        if (isWindows) systemName = 'Windows (PowerShell)';
+        else if (isMac) systemName = 'macOS (终端)';
+        else if (isLinux) systemName = 'Linux (终端)';
+        document.getElementById('detected-system').textContent = systemName;
     </script>
 </body>
 </html>
